@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+
 export function Home() {
   const [statusConsumer, setStatusConsumer] = useState("baixo");
   const [value, setValue] = useState(0);
@@ -60,13 +63,27 @@ export function Home() {
         py-4 px-1 rounded-t-3xl border-t-4
         bg-zinc-50/10  border-zinc-50/20 overflow-hidden whitespace-nowrap"
         >
-          <p>QUI (13/10) - R$ 100,00</p>
-          <p>QUA (12/10) - R$ 100,00</p>
-          <p>TER (11/10) - R$ 100,00</p>
-          <p>SEG (10/10) - R$ 100,00</p>
-          <p>DOM (9/10) - R$ 100,00</p>
-          <p>SÁB (8/10) - R$ 100,00</p>
-          <p>SEX (7/10) - R$ 100,00</p>
+          <AliceCarousel
+            animationDuration={20000}
+            autoPlayInterval={1}
+            autoPlay={true}
+            autoWidth={true}
+            autoHeight={true}
+            disableButtonsControls={true}
+            disableDotsControls={true}
+            animationEasingFunction={"linear"}
+            infinite={true}
+            disableSlideInfo={true}
+            items={[
+              <p className="w-fit px-6">SEX (7/10) - R$ 100,00</p>,
+              <p className="w-fit px-6">SÁB (8/10) - R$ 100,00</p>,
+              <p className="w-fit px-6">DOM (9/10) - R$ 100,00</p>,
+              <p className="w-fit px-6">SEG (10/10) - R$ 100,00</p>,
+              <p className="w-fit px-6">TER (11/10) - R$ 100,00</p>,
+              <p className="w-fit px-6">QUA (12/10) - R$ 100,00</p>,
+              <p className="w-fit px-6">QUI (13/10) - R$ 100,00</p>,
+            ]}
+          />
         </div>
       </footer>
     </main>
