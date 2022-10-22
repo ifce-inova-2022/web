@@ -40,19 +40,24 @@ export function FieldInput({
   const isPassword = initialType === "password";
 
   return (
-    <fieldset className="flex flex-col gap-1">
-      <label htmlFor={id}>{label}</label>
+    <fieldset className="flex flex-col gap-1 group">
+      <label className="" htmlFor={id}>
+        {label}
+      </label>
       <div className="relative">
         <div
-          className={`top-[1.65rem] py-[0.75rem] px-3 rounded-l group-hover:bg-primary-500 dark:group-hover:bg-primary-200
-        group-focus:bg-primary-500  dark:group-focus:bg-primary-200 group-hover:text-zinc-50 group-focus:text-zinc-50 absolute transition-colors`}
+          className={`absolute top-2.5 left-3 text-xl text-zinc-600
+          `}
         >
           {icon}
         </div>
         <input
           value={value}
           onChange={handleChange}
-          className="w-full p-2 bg-zinc-400/20 rounded"
+          className="w-full min-w-min p-2 pl-10
+          bg-zinc-100 border-b-2 border-r-2 border-zinc-200 
+          outline-none hover:border-zinc-500 focus:border-zinc-500
+          rounded-md transition-colors"
           id={id}
           type={typed}
           placeholder={placeholder}
