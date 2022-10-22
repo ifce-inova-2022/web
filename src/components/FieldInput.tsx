@@ -46,7 +46,7 @@ export function FieldInput({
       </label>
       <div className="relative">
         <div
-          className={`absolute top-2.5 left-3 text-xl text-zinc-600
+          className={`absolute top-2 left-2 text-xl text-zinc-600
           `}
         >
           {icon}
@@ -55,7 +55,7 @@ export function FieldInput({
           value={value}
           onChange={handleChange}
           className="w-full min-w-min p-2 pl-10
-          bg-zinc-300 border-b-2 border-r-2 border-zinc-200 
+          bg-zinc-200 border-b-2 border-r-2 border-zinc-300 
           outline-none hover:border-zinc-500 focus:border-zinc-500
           rounded-md transition-colors"
           id={id}

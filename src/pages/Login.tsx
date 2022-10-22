@@ -12,29 +12,25 @@ export function Login() {
       <h1 className="text-2xl font-bold text-zinc-800">Faça login</h1>
 
       <form className="flex flex-col gap-4 items-stretch w-full max-w-sm mt-10">
-        <label htmlFor="email" className="flex flex-col gap-3">
-          <FieldInput
-            id="email"
-            placeholder="exemplo@email.com"
-            icon={<Envelope />}
-            label="Email"
-            type="email"
-            value={email}
-            setValue={setEmail}
-          />
-        </label>
+        <FieldInput
+          id="email"
+          placeholder="exemplo@email.com"
+          icon={<Envelope />}
+          label="Email"
+          type="email"
+          value={email}
+          setValue={setEmail}
+        />
 
-        <label htmlFor="password" className="flex flex-col gap-3">
-          <FieldInput
-            id="password"
-            placeholder="***********"
-            icon={<Lock />}
-            label="Senha"
-            type="password"
-            value={password}
-            setValue={setPassword}
-          />
-        </label>
+        <FieldInput
+          id="password"
+          placeholder="***********"
+          icon={<Lock />}
+          label="Senha"
+          type="password"
+          value={password}
+          setValue={setPassword}
+        />
 
         <label htmlFor="remember" className="flex items-center gap-2">
           <Checkbox id="remember" />
@@ -43,9 +39,12 @@ export function Login() {
           </span>
         </label>
 
-        <Button type="submit" className="mt-12" typeButton="secondary" title="Entrar">
-          
-        </Button>
+        <Button
+          type="submit"
+          className="mt-12"
+          typeButton="secondary"
+          title="Entrar"
+        />
       </form>
     </div>
   );
