@@ -25,7 +25,7 @@ export function Home() {
     <main
       className={`${styleStatusConsumer} w-screen h-screen flex items-center justify-center transition-colors duration-[3s]`}
     >
-      <div className="absolute top-4 right-4">
+      <div className="absolute top-9 right-40">
         <input
           type="range"
           value={value}
@@ -34,14 +34,11 @@ export function Home() {
           max={100}
         />
       </div>
-      <header className="absolute top-4 left-6">
-        <div className="h-10">
-          <img src="/logo.png" alt="" />
-        </div>
-      </header>
       <section className="flex flex-col items-center">
         <h1 className="text-3xl font-semibold">Valor gasto hoje</h1>
-        <p className="sm:text-9xl text-6xl font-semibold py-2">R$ {value},00</p>
+        <p className="lg:text-[10rem] sm:text-9xl text-6xl font-semibold py-2 transition-all">
+          R$ {value},00
+        </p>
         <span className="text-xl uppercase">Consumo {statusConsumer}</span>
       </section>
       <footer className="w-full absolute bottom-0 left-0 flex flex-col sm:gap-4 gap-2">
