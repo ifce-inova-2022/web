@@ -43,7 +43,7 @@ export function Login() {
           </span>
         </label>
 
-        <Button type="submit" className="mt-12" typeButton="" title="Entrar">
+        <Button type="submit" className="mt-12" typeButton="secondary" title="Entrar">
           
         </Button>
       </form>
