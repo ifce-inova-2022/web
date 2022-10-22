@@ -41,7 +41,7 @@ export function FieldInput({
 
   return (
     <fieldset className="flex flex-col gap-1 group">
-      <label className="" htmlFor={id}>
+      <label className="text-zinc-800 font-semibold" htmlFor={id}>
         {label}
       </label>
       <div className="relative">
@@ -55,7 +55,7 @@ export function FieldInput({
           value={value}
           onChange={handleChange}
           className="w-full min-w-min p-2 pl-10
-          bg-zinc-100 border-b-2 border-r-2 border-zinc-200 
+          bg-zinc-300 border-b-2 border-r-2 border-zinc-200 
           outline-none hover:border-zinc-500 focus:border-zinc-500
           rounded-md transition-colors"
           id={id}
