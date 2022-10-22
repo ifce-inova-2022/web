@@ -25,7 +25,7 @@ export function Home() {
     <main
       className={`${styleStatusConsumer} w-screen h-screen flex items-center justify-center transition-colors duration-[3s]`}
     >
-      <div className="absolute top-9 right-40">
+      <div className="absolute top-9 right-40 z-30">
         <input
           type="range"
           value={value}
@@ -34,9 +34,9 @@ export function Home() {
           max={100}
         />
       </div>
-      <section className="flex flex-col items-center">
+      <section className="flex flex-col items-center gap-2">
         <h1 className="text-3xl font-semibold">Valor gasto hoje</h1>
-        <p className="lg:text-[10rem] sm:text-9xl text-6xl font-semibold py-2 transition-all">
+        <p className="lg:text-[10rem] sm:text-9xl text-6xl font-semibold transition-all">
           R$ {value},00
         </p>
         <span className="text-xl uppercase">Consumo {statusConsumer}</span>

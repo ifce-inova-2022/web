@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ClosedCaptioning, User, X } from "phosphor-react";
+import { UserCircle, X } from "phosphor-react";
 
 export function Header() {
   const [user, setUser] = useState<undefined | { name: string; type: string }>({
@@ -16,7 +16,7 @@ export function Header() {
   }
 
   return (
-    <header className="absolute top-0 w-screen flex justify-between items-center p-6">
+    <header className="absolute top-0 w-screen flex justify-between items-center p-6 z-10">
       <div className="h-10 relative">
         <Link to="/">
           <img src="/logo.png" alt="" />
@@ -28,7 +28,11 @@ export function Header() {
             className="outline-none"
             onClick={() => setIsOpenMenu(!isOpenMenu)}
           >
-            <User size={28} className="bg-zinc-50 p-px border-2 rounded-full" />
+            <UserCircle
+              size={28}
+              weight={"regular"}
+              className="bg-zinc-50 rounded-full hover:scale-110"
+            />
           </button>
           {isOpenMenu ? (
             <div
