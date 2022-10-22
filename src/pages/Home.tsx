@@ -34,19 +34,16 @@ export function Home() {
           max={100}
         />
       </div>
-
       <header className="absolute top-4 left-6">
         <div className="h-10">
           <img src="/logo.png" alt="" />
         </div>
       </header>
-
       <section className="flex flex-col items-center">
         <h1 className="text-3xl font-semibold">Valor gasto hoje</h1>
         <p className="sm:text-9xl text-6xl font-semibold py-2">R$ {value},00</p>
         <span className="text-xl uppercase">Consumo {statusConsumer}</span>
       </section>
-
       <footer className="w-full absolute bottom-0 left-0 flex flex-col sm:gap-4 gap-2">
         <div className="flex-1 flex sm:flex-row flex-col-reverse justify-between items-end sm:gap-0 gap-4 sm:px-10 px-4">
           <span className="text-xl font-medium">Últimos 7 dias</span>
