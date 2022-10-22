@@ -3,11 +3,11 @@ import { Dispatch, SetStateAction, useState } from "react";
 
 interface FieldProps {
   id: string;
-  label: string;
-  icon: React.ReactNode;
-  placeholder: string;
   type: React.HTMLInputTypeAttribute | undefined;
   initialType?: React.HTMLInputTypeAttribute;
+  label: string;
+  icon?: React.ReactNode;
+  placeholder: string;
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
   required?: boolean;
