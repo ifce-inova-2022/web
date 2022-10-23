@@ -1,5 +1,4 @@
 import { Lock, User, Envelope, House } from "phosphor-react";
-// import { Button } from "../components/Button";
 import { useState } from "react";
 import { Button } from "../components/Button";
 import { FieldInput } from "../components/FieldInput";
@@ -13,10 +12,10 @@ export function Register() {
     <div className="w-full min-h-screen bg-zinc-100 flex flex-col items-center">
       <form
         className="w-[400px] flex-1 
-        flex flex-col gap-4 items-stretch sm:px-6 px-3 md:py-32 py-24
+        flex flex-col gap-4 items-center sm:px-6 px-3 md:py-32 py-24
         "
       >
-        <h1 className="text-2xl p-2 font-bold">Cadastro de usuário</h1>
+        <h1 className="text-3xl p-2 font-bold">Cadastro de usuário</h1>
         <FieldInput
           id="name"
           placeholder="Nome completo"
@@ -71,7 +70,9 @@ export function Register() {
           setValue={setPassword}
         />
 
-        <Button type="submit" className="" typeButton="" title="Criar conta" />
+        <div className="pt-6">
+          <Button type="submit" typeButton="" title="Criar conta" />
+        </div>
       </form>
     </div>
   );

@@ -9,7 +9,7 @@ export function Login() {
   const [password, setPassword] = useState("");
   return (
     <div className="w-screen h-screen bg-zinc-100 flex flex-col justify-center items-center">
-      <h1 className="text-2xl font-bold text-zinc-800">Faça login</h1>
+      <h1 className="text-3xl font-bold text-zinc-800">Faça login</h1>
 
       <form className="flex flex-col gap-4 items-stretch w-full max-w-sm mt-10">
         <FieldInput
@@ -39,12 +39,7 @@ export function Login() {
           </span>
         </label>
 
-        <Button
-          type="submit"
-          className="mt-12"
-          typeButton="secondary"
-          title="Entrar"
-        />
+        <Button type="submit" className="mt-12" typeButton="" title="Entrar" />
       </form>
     </div>
   );

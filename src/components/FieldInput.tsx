@@ -40,13 +40,13 @@ export function FieldInput({
   const isPassword = initialType === "password";
 
   return (
-    <fieldset className="flex flex-col gap-1 group">
+    <fieldset className="w-full flex flex-col gap-1 group">
       <label className="text-zinc-800 font-semibold" htmlFor={id}>
         {label}
       </label>
       <div className="relative">
         <div
-          className={`absolute top-2 left-2 text-xl text-zinc-600
+          className={`absolute top-2.5 left-2 text-xl text-zinc-600
           `}
         >
           {icon}
@@ -66,7 +66,7 @@ export function FieldInput({
         {isPassword ? (
           <button
             type={"button"}
-            className="absolute top-2 right-3 text-xl"
+            className="absolute top-2.5 right-3 text-xl"
             onClick={handleClick}
           >
             {isVisible ? <Eye /> : <EyeClosed />}
