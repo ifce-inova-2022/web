@@ -11,6 +11,7 @@ interface FieldProps {
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
   required?: boolean;
+  width: "50%" | "100%";
 }
 
 export function FieldInput({
@@ -23,6 +24,7 @@ export function FieldInput({
   value,
   setValue,
   required = true,
+  width,
 }: FieldProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [typed, setTyped] = useState(type);
@@ -39,14 +41,19 @@ export function FieldInput({
 
   const isPassword = initialType === "password";
 
+  const widthInput =
+  width === "50%"
+      ? "w-[50%] flex flex-col gap-1 group"
+      : "w-full flex flex-col gap-1 group";
+
   return (
-    <fieldset className="w-full flex flex-col gap-1 group">
+    <fieldset className={`${widthInput}`}>
       <label className="text-zinc-800 font-semibold" htmlFor={id}>
         {label}
       </label>
       <div className="relative">
         <div
-          className={`absolute top-2.5 left-2 text-xl text-zinc-600
+          className={`absolute top-3.5 left-2 text-xl text-zinc-600 
           `}
         >
           {icon}
@@ -54,7 +61,7 @@ export function FieldInput({
         <input
           value={value}
           onChange={handleChange}
-          className="w-full min-w-min p-2 pl-10
+          className="w-full min-w-min p-2 pl-10 h-12
           bg-zinc-200 border-b-2 border-r-2 border-zinc-300 
           outline-none hover:border-zinc-500 focus:border-zinc-500
           rounded-md transition-colors"

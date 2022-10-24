@@ -11,7 +11,7 @@ export function Register() {
   return (
     <div className="w-full min-h-screen bg-zinc-100 flex flex-col items-center">
       <form
-        className="w-[400px] flex-1 
+        className="w-[400px] flex-1
         flex flex-col gap-4 items-center sm:px-6 px-3 md:py-32 py-24
         "
       >
@@ -24,6 +24,7 @@ export function Register() {
           type="text"
           value={name}
           setValue={setName}
+          width="100%"
         />
 
         <FieldInput
@@ -34,45 +35,47 @@ export function Register() {
           type="email"
           value={email}
           setValue={setEmail}
+          width="100%"
         />
 
-        <FieldInput
-          id="campus"
-          placeholder="Campus"
-          icon={<House />}
-          label="Campus"
-          type="text"
-          value={campus}
-          setValue={setCampus}
-        />
-
-        <label htmlFor="admin" className="flex flex-col gap-3 w-[40%]">
-          Admin:radio
-        </label>
+        <div className="flex w-full">
+          <FieldInput
+            id="campus"
+            placeholder="Campus"
+            icon={<House />}
+            label="Campus"
+            type="text"
+            value={campus}
+            setValue={setCampus}
+            width="50%"
+          />
+          <label htmlFor="admin" className="flex flex-col gap-3 w-[50%]">
+            Admin:radio
+          </label>
+        </div>
 
         <FieldInput
           id="password"
           placeholder="********"
           icon={<Lock />}
-          label="Password"
+          label="Senha"
           type="password"
           value={password}
           setValue={setPassword}
+          width="100%"
         />
 
         <FieldInput
           id="password-confirmation"
           placeholder="********"
           icon={<Lock />}
-          label="Password"
+          label="Confirmar senha"
           type="password"
           value={password}
           setValue={setPassword}
+          width="100%"
         />
-
-        <div className="pt-6">
-          <Button type="submit" typeButton="" title="Criar conta" />
-        </div>
+          <Button type="submit" typeColor="primary" title="Criar conta" />
       </form>
     </div>
   );
