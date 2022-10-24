@@ -20,6 +20,7 @@ export function Login() {
           type="email"
           value={email}
           setValue={setEmail}
+          width="100%"
         />
 
         <FieldInput
@@ -30,6 +31,7 @@ export function Login() {
           type="password"
           value={password}
           setValue={setPassword}
+          width="100%"
         />
 
         <label htmlFor="remember" className="flex items-center gap-2">
@@ -39,7 +41,7 @@ export function Login() {
           </span>
         </label>
 
-        <Button type="submit" className="mt-12" typeButton="" title="Entrar" />
+        <Button type="submit" className="mt-12" typeColor="primary" title="Entrar" />
       </form>
     </div>
   );
