@@ -16,7 +16,7 @@ export function Header() {
   }
 
   return (
-    <header className="absolute top-0 w-screen flex justify-between items-center p-6 z-10">
+    <header className="absolute top-0 w-full flex justify-between items-center p-6 z-10">
       <div className="h-10 relative">
         <Link to="/">
           <img src="/logo.png" alt="" />
