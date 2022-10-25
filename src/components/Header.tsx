@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { UserCircle, X } from "phosphor-react";
+import { User, UserCircle, X } from "phosphor-react";
 
 export function Header() {
   const [user, setUser] = useState<undefined | { name: string; type: string }>({
@@ -28,10 +28,10 @@ export function Header() {
             className="outline-none"
             onClick={() => setIsOpenMenu(!isOpenMenu)}
           >
-            <UserCircle
+            <User
               size={28}
-              weight={"regular"}
-              className="bg-zinc-50 rounded-full hover:scale-110"
+              weight={"bold"}
+              className="card p-[2px] rounded-full shadow-md hover:shadow-lg hover:shadow-xl hover:scale-110 transition-all"
             />
           </button>
           {isOpenMenu ? (

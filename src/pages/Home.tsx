@@ -4,6 +4,16 @@ import { Link } from "react-router-dom";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 
+const lastSevenDays = [
+  "SEX (7/10) - R$ 100,00",
+  "SÁB (8/10) - R$ 100,00",
+  "DOM (9/10) - R$ 100,00",
+  "SEG (10/10) - R$ 100,00",
+  "TER (11/10) - R$ 100,00",
+  "QUA (12/10) - R$ 100,00",
+  "QUI (13/10) - R$ 100,00",
+];
+
 export function Home() {
   const [statusConsumer, setStatusConsumer] = useState("baixo");
   const [value, setValue] = useState(0);
@@ -18,7 +28,7 @@ export function Home() {
     statusConsumer === "baixo"
       ? "bg-custom-green-default text-zinc-50"
       : statusConsumer === "moderado"
-      ? "bg-custom-yellow-default text-zinc-900"
+      ? "bg-custom-yellow-hover text-zinc-900"
       : "bg-custom-red-default text-zinc-50";
 
   return (
@@ -31,15 +41,17 @@ export function Home() {
           value={value}
           onChange={(e) => setValue(+e.target.value)}
           min={0}
-          max={100}
+          max={100.0}
         />
       </div>
-      <section className="flex flex-col items-center gap-2">
+      <section className="flex flex-col items-center gap-2 drop-shadow-lg">
         <h1 className="text-3xl font-semibold">Valor gasto hoje</h1>
         <p className="lg:text-[10rem] sm:text-9xl text-6xl font-semibold transition-all">
           R$ {value},00
         </p>
-        <span className="text-xl uppercase">Consumo {statusConsumer}</span>
+        <span className="text-xl uppercase font-bold">
+          Consumo {statusConsumer}
+        </span>
       </section>
       <footer className="w-full absolute bottom-0 left-0 flex flex-col sm:gap-4 gap-2">
         <div className="flex-1 flex sm:flex-row flex-col-reverse justify-between items-end sm:gap-0 gap-4 sm:px-10 px-4">
@@ -68,15 +80,9 @@ export function Home() {
             animationEasingFunction={"linear"}
             infinite={true}
             disableSlideInfo={true}
-            items={[
-              <p className="w-fit px-6">SEX (7/10) - R$ 100,00</p>,
-              <p className="w-fit px-6">SÁB (8/10) - R$ 100,00</p>,
-              <p className="w-fit px-6">DOM (9/10) - R$ 100,00</p>,
-              <p className="w-fit px-6">SEG (10/10) - R$ 100,00</p>,
-              <p className="w-fit px-6">TER (11/10) - R$ 100,00</p>,
-              <p className="w-fit px-6">QUA (12/10) - R$ 100,00</p>,
-              <p className="w-fit px-6">QUI (13/10) - R$ 100,00</p>,
-            ]}
+            items={lastSevenDays.map((item) => (
+              <p className="whitespace-nowrap w-fit px-6">{item}</p>
+            ))}
           />
         </div>
       </footer>
