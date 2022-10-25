@@ -31,7 +31,7 @@ export function Header() {
             <User
               size={28}
               weight={"bold"}
-              className="card p-[2px] rounded-full shadow-md hover:shadow-lg hover:shadow-xl hover:scale-110 transition-all"
+              className="card p-[2px] rounded-full shadow-md hover:shadow-xl hover:scale-110 transition-all"
             />
           </button>
           {isOpenMenu ? (
