@@ -99,7 +99,7 @@ export function Register() {
           setValue={setPasswordConfirmation}
           width="100%"
         />
-        <Button type="submit" typeColor="primary" title="Criar conta" />
+        <Button type="submit" typeColor="primary" sizeWidth="100%" title="Criar conta" />
       </form>
     </div>
   );

@@ -16,9 +16,9 @@ export function Diary() {
         <span className="text-2xl font-bold">Gráfico de consumo diário</span>
         <img className="h-72 mt-4" src="/chart-demanda-ativa.svg" alt="" />
       </div>
-      <div className="flex flex-row">
-        <Button className="" typeColor="primary" title="Retornar período" />
-        <Button typeColor="primary" title="Avançar período" />
+      <div className="flex flex-row justify-between">
+        <Button typeColor="primary" sizeWidth="50%" title="Retornar período" />
+        <Button typeColor="primary" sizeWidth="50%" title="Avançar período" />
       </div>
     </SectionDashboard>
   );
