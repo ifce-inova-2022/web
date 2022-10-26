@@ -2,12 +2,27 @@ import { Lock, User, Envelope, House } from "phosphor-react";
 import { useState } from "react";
 import { Button } from "../components/Button";
 import { FieldInput } from "../components/FieldInput";
+import { RadioButton } from "../components/RadioButton";
+
 
 export function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [campus, setCampus] = useState("");
+  const [admin, setAdmin] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+
+  function validatePassword(pwd: string) {
+    if (pwd.length < 8) console.log('A senha deve possuir 8 caracteres')
+    else return pwd
+  }
+
+  function validatePasswordConf(pwd: string, pwdConf: string) {
+    if (pwdConf !== pwd) console.log('As senhas devem ser iguais')
+    else return pwd
+  }
+
   return (
     <div className="w-full min-h-screen bg-zinc-100 flex flex-col items-center">
       <form
@@ -49,9 +64,18 @@ export function Register() {
             setValue={setCampus}
             width="50%"
           />
-          <label htmlFor="admin" className="flex flex-col gap-3 w-[50%]">
-            Admin:radio
-          </label>
+
+          <div className="ml-[20px]">
+            <RadioButton
+              id="isAdmin"
+              type="radio"
+              label="Administrador"
+              name="isAdmin"
+              opt1="Não"
+              opt2="Sim"
+              setValue={setAdmin}
+            />
+          </div>
         </div>
 
         <FieldInput
@@ -71,11 +95,11 @@ export function Register() {
           icon={<Lock />}
           label="Confirmar senha"
           type="password"
-          value={password}
-          setValue={setPassword}
+          value={passwordConfirmation}
+          setValue={setPasswordConfirmation}
           width="100%"
         />
-          <Button type="submit" typeColor="primary" title="Criar conta" />
+        <Button type="submit" typeColor="primary" title="Criar conta" />
       </form>
     </div>
   );
