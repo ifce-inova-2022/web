@@ -41,7 +41,7 @@ export function Login() {
           </span>
         </label>
 
-        <Button type="submit" className="mt-12" typeColor="primary" title="Entrar" />
+        <Button type="submit" className="mt-12" typeColor="primary" sizeWidth="100%" title="Entrar" />
       </form>
     </div>
   );
