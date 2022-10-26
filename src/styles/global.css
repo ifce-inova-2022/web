@@ -31,3 +31,14 @@ html,
 body {
   @apply scroll-smooth min-h-screen min-w-full p-0 m-0;
 }
+
+::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  width: 15px;
+  height: 15px;
+  background-color: rgba(0, 0, 0, 0.40);    /* color of the scroll thumb */
+  border-radius: 12px;       /* roundness of the scroll thumb */
+}
