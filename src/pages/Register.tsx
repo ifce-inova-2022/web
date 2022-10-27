@@ -2,7 +2,7 @@ import { Lock, User, Envelope, House } from "phosphor-react";
 import { useState, Dispatch, SetStateAction } from "react";
 import { Button } from "../components/Button";
 import { FieldInput } from "../components/FieldInput";
-import { RadioButton } from "../components/RadioButton";
+import { RadioButton, RadioOption } from "../components/RadioButton";
 import { toast } from "react-toastify";
 
 interface RegisterProps {
@@ -93,15 +93,20 @@ export function Register({ setState }: RegisterProps) {
           />
 
           <div className="ml-[20px]">
-            <RadioButton
-              id="isAdmin"
-              type="radio"
-              label="Administrador"
-              name="isAdmin"
-              opt1="Não"
-              opt2="Sim"
-              setValue={setAdmin}
-            />
+            <RadioButton id="isAdmin" label="Administrador">
+              <RadioOption
+                name="isAdmin"
+                value="isNotAdmin"
+                opt="Não"
+                setValue={setAdmin}
+              />
+              <RadioOption
+                name="isAdmin"
+                value="isAdmin"
+                opt="Sim"
+                setValue={setAdmin}
+              />
+            </RadioButton>
           </div>
         </div>
 
