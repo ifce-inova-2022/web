@@ -9,7 +9,6 @@ interface RadioProps {
   opt1: string;
   opt2: string;
   setValue: Dispatch<React.SetStateAction<string>>;
-  required?: boolean;
 }
 
 export function RadioButton({
@@ -19,7 +18,6 @@ export function RadioButton({
   name,
   opt1,
   opt2,
-  required = true,
 }: RadioProps) {
   const [selectedBtn, setSelectedBtn] = useState('isNotAdmin')
   const isRadioSelected = (value: string): boolean => selectedBtn === value;
