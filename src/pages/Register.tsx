@@ -5,12 +5,7 @@ import { FieldInput } from "../components/FieldInput";
 import { RadioButton } from "../components/RadioButton";
 import { toast } from "react-toastify";
 
-interface RegisterProps {
-  state: boolean;
-  setState: Dispatch<SetStateAction<boolean>>;
-}
-
-export function Register({ setState }: RegisterProps) {
+export function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [campus, setCampus] = useState("");
@@ -42,7 +37,6 @@ export function Register({ setState }: RegisterProps) {
     (async () => {
       try {
         toast.success("Deu certo");
-        setState(true);
       } catch (error: any) {
         toast.error(`Ops... ${error}`);
       }
