@@ -1,7 +1,6 @@
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import { Button } from "../components/Button";
 import { FieldInput } from "../components/FieldInput";
-import { RadioButton } from "../components/RadioButton";
 
 const user = {
   name: "Alexandre  Gurgel",
