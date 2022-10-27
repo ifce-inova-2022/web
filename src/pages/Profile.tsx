@@ -3,7 +3,7 @@ import { Button } from "../components/Button";
 import { FieldInput } from "../components/FieldInput";
 
 const user = {
-  name: "Alexandre  Gurgel",
+  name: "Alexandre Gurgel",
   email: "xandongurgel@gmail.com",
   type: "admin",
   campus: "IFCE Aracati",
