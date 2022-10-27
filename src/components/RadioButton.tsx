@@ -4,7 +4,7 @@ import { Dispatch, useState } from "react";
 interface RadioProps {
   id: string;
   label: string;
-  type: React.HTMLInputTypeAttribute | undefined;
+  type: "radio";
   name: string;
   opt1: string;
   opt2: string;
@@ -14,7 +14,7 @@ interface RadioProps {
 export function RadioButton({
   id,
   label,
-  type = "radio",
+  type,
   name,
   opt1,
   opt2,
@@ -23,7 +23,6 @@ export function RadioButton({
   const isRadioSelected = (value: string): boolean => selectedBtn === value;
   const handleRadioClick = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSelectedBtn(e.currentTarget.value)
-    console.log(e.currentTarget.value)
   }
   return (
     <div>
