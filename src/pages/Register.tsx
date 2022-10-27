@@ -1,10 +1,9 @@
 import { Lock, User, Envelope, House } from "phosphor-react";
 import { useState, Dispatch, SetStateAction } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { Button } from "../components/Button";
 import { FieldInput } from "../components/FieldInput";
 import { RadioButton } from "../components/RadioButton";
+import { toast } from "react-toastify";
 
 interface RegisterProps {
   state: boolean;
@@ -127,20 +126,13 @@ export function Register({ setState }: RegisterProps) {
           setValue={setPasswordCheck}
           width="100%"
         />
-        <Button type="submit" typeColor="primary" title="Criar conta" sizeWidth="100%" />
+        <Button
+          type="submit"
+          typeColor="primary"
+          title="Criar conta"
+          sizeWidth="100%"
+        />
       </form>
-
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        pauseOnHover
-        theme="light"
-      />
     </div>
   );
 }
