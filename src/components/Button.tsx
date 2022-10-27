@@ -1,29 +1,25 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children?: ReactNode;
-  asChild?: boolean;
-  typeColor: string;
   title: string;
-  sizeWidth: "50%" | "100%";
+  typeColor?: "primary" | "secondary";
+  sizeWidth?: "50%" | "100%";
 }
 export function Button({
-  children,
-  asChild,
-  typeColor,
-  sizeWidth,
+  typeColor = "primary",
+  sizeWidth = "100%",
   title,
   className,
   ...props
 }: ButtonProps) {
   const colorButton =
-  typeColor === "secondary"
+    typeColor === "secondary"
       ? "bg-custom-red-default hover:bg-custom-red-hover"
       : "bg-custom-green-default hover:bg-custom-green-hover";
-  const widthButton = sizeWidth === "50%" ? "w-[9.75rem]" : "w-full"
+  const widthButton = sizeWidth === "50%" ? "w-[9.75rem]" : "w-full";
   return (
     <button
-      className={`mt-10 py-3 px-4 ${widthButton} h-14 ${colorButton} rounded font-semibold text-zinc-100 text-sm transition-colors focus:ring-2 ring-white`}
+      className={`mt-6 py-4 ${widthButton} ${colorButton} rounded font-semibold text-zinc-100 text-sm transition-colors focus:ring-2 ring-white`}
       {...props}
     >
       {title}

@@ -75,7 +75,7 @@ export function Header() {
       )}
       {isOpenModal ? (
         <div
-          className="card flex items-center justify-center top-0 right-0 w-screen h-screen absolute z-50"
+          className="card flex items-center justify-center top-0 right-0 w-screen h-screen absolute z-10"
           onAuxClick={() => setIsOpenModal(false)}
         >
           <div className=" bg-zinc-50 p-10 shadow-2xl border-2 rounded-lg relative">
