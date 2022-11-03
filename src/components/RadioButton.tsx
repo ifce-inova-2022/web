@@ -1,7 +1,7 @@
 import React from "react";
 import { Dispatch } from "react";
 
-const RadioContext = React.createContext({ name: "", currentValue: null as any, setValue: (value: string) => { } });
+const RadioContext = React.createContext({ name: "", currentValue: null as any, required: false, setValue: (value: string) => { } });
 
 interface RadioProps {
   id: string;
@@ -10,6 +10,7 @@ interface RadioProps {
   value: string;
   setValue: Dispatch<React.SetStateAction<string>>;
   children: React.ReactNode;
+  required?: boolean;
 }
 
 export function RadioButton({
@@ -19,10 +20,11 @@ export function RadioButton({
   value,
   setValue,
   children,
+  required = false,
 }: RadioProps) {
 
   return (
-    <RadioContext.Provider value={{ name, currentValue: value, setValue }}>
+    <RadioContext.Provider value={{ name, currentValue: value, required, setValue }}>
       <label className="text-zinc-800 font-semibold" htmlFor={id}>
         {label}
       </label>
@@ -37,15 +39,15 @@ export function RadioButton({
 interface RadioButtonProps {
   value: string;
   type?: string;
-  opt: string;
+  children: React.ReactNode;
 }
 
 export function RadioOption({
   value,
   type = "radio",
-  opt,
+  children,
 }: RadioButtonProps) {
-  const { name, currentValue, setValue } = React.useContext(RadioContext);
+  const { name, currentValue, required, setValue } = React.useContext(RadioContext);
 
   return (
     <div className="mx-auto my-auto flex px-[5px] mt-[15px]">
@@ -55,8 +57,9 @@ export function RadioOption({
         value={value}
         checked={currentValue === value}
         onChange={setValue.bind(null, value)}
+        required={required}
       />
-      <h3 className="ml-[5px] mr-[15px]">{opt}</h3>
+      <div className="ml-[5px] mr-[15px]">{children}</div>
     </div>
   )
 }

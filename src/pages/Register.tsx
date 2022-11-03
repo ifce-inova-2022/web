@@ -87,16 +87,9 @@ export function Register() {
           />
 
           <div className="ml-[20px]">
-            {admin}
-            <RadioButton id="isAdmin" label="Administrador" name="isAdmin" value={admin} setValue={setAdmin}>
-              <RadioOption
-                value="isNotAdmin"
-                opt="Não"
-              />
-              <RadioOption
-                value="isAdmin"
-                opt="Sim"
-              />
+            <RadioButton id="isAdmin" label="Administrador" name="isAdmin" required value={admin} setValue={setAdmin}>
+              <RadioOption value="isNotAdmin">Não</RadioOption>
+              <RadioOption value="isAdmin">Sim</RadioOption>
             </RadioButton>
           </div>
         </div>
@@ -128,7 +121,7 @@ export function Register() {
           title="Criar conta"
           sizeWidth="100%"
         />
-      </form>
-    </div>
+      </form >
+    </div >
   );
 }
