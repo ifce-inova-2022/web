@@ -1,8 +1,8 @@
 import { Lock, User, Envelope, House } from "phosphor-react";
-import { useState, Dispatch, SetStateAction } from "react";
+import { useState } from "react";
 import { Button } from "../components/Button";
 import { FieldInput } from "../components/FieldInput";
-import { RadioButton } from "../components/RadioButton";
+import { RadioButton, RadioOption } from "../components/RadioButton";
 import { toast } from "react-toastify";
 
 export function Register() {
@@ -87,15 +87,10 @@ export function Register() {
           />
 
           <div className="ml-[20px]">
-            <RadioButton
-              id="isAdmin"
-              type="radio"
-              label="Administrador"
-              name="isAdmin"
-              opt1="Não"
-              opt2="Sim"
-              setValue={setAdmin}
-            />
+            <RadioButton id="isAdmin" label="Administrador" name="isAdmin" required value={admin} setValue={setAdmin}>
+              <RadioOption value="isNotAdmin">Não</RadioOption>
+              <RadioOption value="isAdmin">Sim</RadioOption>
+            </RadioButton>
           </div>
         </div>
 
@@ -126,7 +121,7 @@ export function Register() {
           title="Criar conta"
           sizeWidth="100%"
         />
-      </form>
-    </div>
+      </form >
+    </div >
   );
 }
