@@ -1,5 +1,6 @@
 import { Button } from "../Button";
 import { ChartDiary } from "../charts/ChartDiary";
+import { ChartYearly } from "../charts/ChartYearly";
 import { SectionDashboard } from "../SectionDashboard";
 
 export function Yearly() {
@@ -15,8 +16,7 @@ export function Yearly() {
       </div>
       <div className="mt-8">
         <span className="text-2xl font-bold">Gráfico de consumo anual</span>
-        <ChartDiary />
-        {/* <img className="h-72 mt-4" src="/chart-demanda-ativa.svg" alt="" /> */}
+        <ChartYearly />
       </div>
       <div className="flex flex-row justify-between">
         <Button typeColor="primary" sizeWidth="50%" title="Retornar período" />
