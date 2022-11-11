@@ -49,6 +49,9 @@ const options = {
       display: true,
       //   text: "Chart.js Line Chart - Multi Axis",
     },
+    legend: {
+      position: 'bottom' as const,
+    },
   },
   scales: {
     y: {
