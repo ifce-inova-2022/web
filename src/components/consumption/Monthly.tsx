@@ -1,5 +1,5 @@
 import { Button } from "../Button";
-import { ChartDiary } from "../charts/ChartDiary";
+import { ChartMonthly } from "../charts/ChartMonthly";
 import { SectionDashboard } from "../SectionDashboard";
 
 export function Monthly() {
@@ -15,7 +15,7 @@ export function Monthly() {
       </div>
       <div className="mt-8">
         <span className="text-2xl font-bold">Gráfico de consumo mensal</span>
-        <ChartDiary />
+        <ChartMonthly />
         {/* <img className="h-72 mt-4" src="/chart-demanda-ativa.svg" alt="" /> */}
       </div>
       <div className="flex flex-row justify-between">
