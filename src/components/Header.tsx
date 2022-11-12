@@ -16,7 +16,7 @@ export function Header() {
   }
 
   return (
-    <header className="absolute top-0 w-full flex justify-between items-center p-6 z-10">
+    <header className=" fixed w-full flex justify-between items-center p-6 z-10">
       <div className="h-10 relative">
         <Link to="/">
           <img src="/logo.png" alt="" />
@@ -31,7 +31,7 @@ export function Header() {
             <User
               size={28}
               weight={"bold"}
-              className="card p-[2px] rounded-full shadow-md hover:shadow-xl hover:scale-110 transition-all"
+              className="p-[2px] rounded-full shadow-md hover:shadow-xl hover:scale-110 transition-all"
             />
           </button>
           {isOpenMenu ? (
@@ -75,7 +75,7 @@ export function Header() {
       )}
       {isOpenModal ? (
         <div
-          className="card flex items-center justify-center top-0 right-0 w-screen h-screen absolute z-10"
+          className="glass flex items-center justify-center top-0 right-0 w-screen h-screen absolute z-10"
           onAuxClick={() => setIsOpenModal(false)}
         >
           <div className=" bg-zinc-50 p-10 shadow-2xl border-2 rounded-lg relative">

@@ -23,7 +23,7 @@ export function Profile() {
   return (
     <main className="bg-zinc-100 p-6 pt-32 flex flex-col items-center justify-center relative">
       {isOpenModal ? (
-        <div className="top-0 w-full h-full card flex items-center justify-center absolute z-10">
+        <div className="top-0 w-full h-full glass flex items-center justify-center absolute z-10">
           Modal
         </div>
       ) : (

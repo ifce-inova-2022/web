@@ -1,5 +1,5 @@
 import { Lock, User, Envelope, House } from "phosphor-react";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Button } from "../components/Button";
 import { FieldInput } from "../components/FieldInput";
 import { RadioButton, RadioOption } from "../components/RadioButton";
@@ -13,26 +13,18 @@ export function Register() {
   const [password, setPassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
 
-  const [error, setError] = useState("");
-
-  function handleSubmit(e: { preventDefault: () => void }) {
+  function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
-    if (!name || !email || !campus || !password || !passwordCheck) {
-      setError("Todos os campos são obrigatórios");
+    if (!name || !email || !campus || !password || !passwordCheck)
       return toast.warn("Campos obrigatórios");
-    }
 
-    if (password.length < 8) {
-      setError("A deve conter no mínimo 8 caracteres");
-      return toast.warn("Senha inválida");
-    }
-    if (password !== passwordCheck) {
-      setError("As senhas não coincidem");
+    if (password.length < 8) return toast.warn("Senha inválida");
+
+    if (password !== passwordCheck)
       return toast.warn("As senhas devem ser iguais");
-    }
 
-    setError("");
+    toast.dismiss();
 
     (async () => {
       try {
@@ -87,7 +79,14 @@ export function Register() {
           />
 
           <div className="ml-[20px]">
-            <RadioButton id="isAdmin" label="Administrador" name="isAdmin" required value={admin} setValue={setAdmin}>
+            <RadioButton
+              id="isAdmin"
+              label="Administrador"
+              name="isAdmin"
+              required
+              value={admin}
+              setValue={setAdmin}
+            >
               <RadioOption value="isNotAdmin">Não</RadioOption>
               <RadioOption value="isAdmin">Sim</RadioOption>
             </RadioButton>
@@ -121,7 +120,7 @@ export function Register() {
           title="Criar conta"
           sizeWidth="100%"
         />
-      </form >
-    </div >
+      </form>
+    </div>
   );
 }
