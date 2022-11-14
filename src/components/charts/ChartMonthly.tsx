@@ -16,11 +16,19 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
-export const options = {
+export const options: any = {
   responsive: true,
+  interaction: {
+    mode: "index" as const,
+    intersect: false,
+  },
+  animation: {
+    duration: 1000,
+  },
+  stacked: false,
   plugins: {
     legend: {
       position: "bottom" as const,
