@@ -24,11 +24,14 @@ ChartJS.register(
   annotationPlugin
 );
 
-const options = {
+const options: any = {
   responsive: true,
   interaction: {
     mode: "index" as const,
     intersect: false,
+  },
+  animation: {
+    duration: 1000,
   },
   stacked: false,
   plugins: {

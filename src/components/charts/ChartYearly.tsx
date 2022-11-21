@@ -21,6 +21,9 @@ ChartJS.register(
 
 export const options = {
   responsive: true,
+  animation: {
+    duration: 1000,
+  },
   plugins: {
     legend: {
       position: "bottom" as const,
