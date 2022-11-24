@@ -44,11 +44,10 @@ export function Register() {
   }
 
   return (
-    <div className="w-full min-h-screen bg-zinc-100 flex flex-col items-center">
+    <div className="w-full min-h-screen bg-zinc-100 flex flex-col items-center justify-center overflow-x-hidden">
       <form
         onSubmit={handleSubmit}
-        className="w-[400px] flex-1
-        flex flex-col gap-4 items-center sm:px-6 px-3 md:py-32 py-24
+        className="w-[400px] flex flex-col gap-4 items-center sm:px-6 px-3 md:py-28 py-20
         "
       >
         <h1 className="text-3xl p-2 font-bold">Cadastro de usuário</h1>
@@ -87,7 +86,14 @@ export function Register() {
           />
 
           <div className="ml-[20px]">
-            <RadioButton id="isAdmin" label="Administrador" name="isAdmin" required value={admin} setValue={setAdmin}>
+            <RadioButton
+              id="isAdmin"
+              label="Administrador"
+              name="isAdmin"
+              required
+              value={admin}
+              setValue={setAdmin}
+            >
               <RadioOption value="isNotAdmin">Não</RadioOption>
               <RadioOption value="isAdmin">Sim</RadioOption>
             </RadioButton>
@@ -121,7 +127,7 @@ export function Register() {
           title="Criar conta"
           sizeWidth="100%"
         />
-      </form >
-    </div >
+      </form>
+    </div>
   );
 }

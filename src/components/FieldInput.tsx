@@ -88,7 +88,7 @@ export function FieldInput({
           <button
             className={`${
               toggleEdit
-                ? "bg-zinc-300"
+                ? "bg-zinc-300 hover:bg-zinc-400/40"
                 : "bg-custom-green-default text-zinc-50"
             } absolute top-0 right-0 text-xl hover:scale-[1.02] p-3 rounded transition-colors`}
             onClick={() => setToggleEdit(!toggleEdit)}
