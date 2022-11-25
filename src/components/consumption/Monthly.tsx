@@ -6,16 +6,20 @@ import { SectionDashboard } from "../SectionDashboard";
 export function Monthly() {
   return (
     <SectionDashboard title="Consumo Mensal">
-      <div className="flex mt-6">
-        <span className="mr-9 text-xl font-bold">CAMPUS</span>
+      <div className="flex gap-6 mt-6">
+        <span className="text-xl font-bold">CAMPUS</span>
         <span className="text-xl">IFCE - CAMPUS ARACATI</span>
       </div>
+
       <div className="mt-8 flex flex-col">
         <span className="text-xl font-medium">Período</span>
         <span>Outubro de 2022</span>
       </div>
-      <div className="flex flex-col items-end">
-        <div className="w-[26%] flex flex-row justify-between mt-4">
+
+      <div className="flex justify-between items-center mt-4">
+        <span className="text-2xl font-bold">Gráfico de consumo mensal</span>
+
+        <div className="flex gap-2">
           <Button
             typeColor="primary"
             sizeWidth="50%"
@@ -24,11 +28,9 @@ export function Monthly() {
           <Button typeColor="primary" sizeWidth="50%" title="Avançar período" />
         </div>
       </div>
-      <div className="mt-8">
-        <span className="text-2xl font-bold">Gráfico de consumo mensal</span>
-        <div className="px-20 py-4">
-          <ChartMonthly />
-        </div>
+
+      <div className="mt-6 px-20 py-4">
+        <ChartMonthly />
       </div>
     </SectionDashboard>
   );
