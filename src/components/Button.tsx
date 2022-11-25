@@ -19,7 +19,7 @@ export function Button({
   const widthButton = sizeWidth === "50%" ? "w-[9.75rem]" : "w-full";
   return (
     <button
-      className={`mt-6 py-4 ${widthButton} ${colorButton} rounded font-semibold text-zinc-100 text-sm transition-colors focus:ring-2 ring-white`}
+      className={`py-4 ${widthButton} ${colorButton} rounded font-semibold text-zinc-100 text-sm transition-colors focus:ring-2 ring-white`}
       {...props}
     >
       {title}
