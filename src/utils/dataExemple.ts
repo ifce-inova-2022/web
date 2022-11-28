@@ -901,9 +901,9 @@ export const dataIntervalDetails = [
   { id: 1, pa_p: 14, pa_fp: 83, pr_p: 0, pr_fp: 0 },
 ];
 
-export const dataIntervalMedia = {
+export const dataIntervalMean = {
   m_pa_p: 2.5388888888888888,
   m_pa_fp: 13.28888888888889,
   m_pr_p: 6.975555555555555,
-  m_pr_fp: 35.663333333333334
+  m_pr_fp: 35.663333333333334,
 };
