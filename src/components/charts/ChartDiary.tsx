@@ -157,36 +157,37 @@ export function ChartDiary() {
     setShowModal(false);
   }
 
-  // const printElementAtEvent = (element: InteractionItem[]) => {
-  //   if (!element.length) return;
+  const openModal = (element: InteractionItem[]) => {
+    if (!element.length) return;
 
-  //   const { datasetIndex, index } = element[0];
-
-  //   console.log(data.labels[index], data.datasets[datasetIndex].data[index]);
-  // };
-
-  // const chartRef = useRef<ChartJS>(null);
-
-  // const onClick = (event: MouseEvent<HTMLCanvasElement>) => {
-  //   // const { current: chart } = chartRef;
-
-  //   // if (!chart) {
-  //   //   return;
-  //   // }
-  //   // printElementAtEvent(getElementAtEvent(chart, event));
+    console.log(element.length);
+    setShowModal(true);
+    // const { datasetIndex, index } = element[0];
 
 
 
-  // };
+    // console.log(data.labels[index], data.datasets[datasetIndex].data[index]);
+  };
+
+  const chartRef = useRef<ChartJS>(null);
+
+  const onClick = (event: MouseEvent<HTMLCanvasElement>) => {
+    const { current: chart } = chartRef;
+
+    if (!chart) {
+      return;
+    }
+    openModal(getElementAtEvent(chart, event));
+  };
 
 
   
   return (
     <div>
       <Chart
-        // ref={chartRef}
+        ref={chartRef}
         type="line"
-        onClick={() => setShowModal(true)}
+        onClick={onClick}
         options={options}
         data={data}
       />
