@@ -907,3 +907,10 @@ export const dataIntervalMean = {
   m_pr_p: 6.975555555555555,
   m_pr_fp: 35.663333333333334,
 };
+
+export const dataIntervalTotal = {
+  t_pa_p: 2285,
+  t_pa_fp: 11960,
+  t_pr_p: 6278,
+  t_pr_fp: 32097,
+};
