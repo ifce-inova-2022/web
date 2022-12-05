@@ -1,4 +1,4 @@
-import React, { MouseEvent, useRef } from "react";
+import React, { MouseEvent, useRef, useState } from "react";
 import type { InteractionItem } from "chart.js";
 import {
   Chart as ChartJS,
@@ -8,15 +8,17 @@ import {
   PointElement,
   LineElement,
   Legend,
-  Tooltip
+  Tooltip,
 } from "chart.js";
 import {
   Chart,
   getDatasetAtEvent,
   getElementAtEvent,
-  getElementsAtEvent
+  getElementsAtEvent,
 } from "react-chartjs-2";
 import annotationPlugin from "chartjs-plugin-annotation";
+import { dataIntervalMean, dataIntervalMeanConsumiption, dataIntervalMeanDA, dataIntervalMeanDR } from "../../utils/dataExemple";
+import { Modal } from "../Modal";
 
 ChartJS.register(
   LinearScale,
@@ -29,6 +31,8 @@ ChartJS.register(
   annotationPlugin
 );
 
+let dataMeans = Object.values(dataIntervalMean);
+
 export const options = {
   responsive: true,
   interaction: {
@@ -40,8 +44,9 @@ export const options = {
       type: "linear" as const,
       title: {
         display: true,
-        text: "Consumo Diário (kW)",
+        text: "Consumo Diário (kWh)",
       },
+      max: Math.max(...dataMeans),
       position: "left" as const,
     },
     y1: {
@@ -50,6 +55,7 @@ export const options = {
         display: true,
         text: "Consumo Diário (R$)",
       },
+      max: Math.max(...dataMeans),
       position: "right" as const,
       grid: {
         drawOnChartArea: false,
@@ -62,47 +68,56 @@ export const options = {
       annotations: {
         box1: {
           type: "box" as const,
+          label: {
+            display: true,
+            enabled: true,
+            content: "Em ponta",
+            color: "black",
+            font: {
+              size: 16
+            },
+          },
           display: true,
           xMin: 18,
           xMax: 22,
           yMin: 0,
-          yMax: 45,
           backgroundColor: "rgba(248, 161, 98, 0.60)",
+          borderWidth: 0,
         },
       },
     },
     legend: {
-      position: 'bottom' as const,
+      position: "bottom" as const,
     },
   },
 };
 
 const labels = [
-  "",
-  "01",
-  "02",
-  "03",
-  "04",
-  "05",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "11",
-  "12",
-  "13",
-  "14",
-  "15",
-  "16",
-  "17",
-  "18",
-  "19",
-  "20",
-  "21",
-  "22",
-  "23",
-  "24",
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
 ];
 
 export const data = {
@@ -112,42 +127,46 @@ export const data = {
       label: "Demanda Ativa",
       borderColor: "rgb(24, 255, 0)",
       backgroundColor: "rgb(24, 255, 0)",
-      data: [
-        0, 18, 14, 3, 14, 18, 14, 3, 14, 18, 14, 3, 14, 18, 14, 3, 14, 18, 14,
-        3, 14, 18, 13, 12, 16,
-      ],
+      data: Object.values(dataIntervalMeanDA.m_pa_p),
       yAxisID: "y",
     },
     {
       label: "Demanda Reativa",
-      data: [
-        0, 10, 5, 2, 20, 30, 45, 0, 10, 5, 2, 20, 30, 45, 0, 10, 5, 2, 20, 30,
-        45, 0, 10, 5, 15,
-      ],
+      data: Object.values(dataIntervalMeanDR),
       borderColor: "rgb(255, 0, 0)",
       backgroundColor: "rgb(255, 0, 0)",
       yAxisID: "y",
     },
     {
       label: "Consumo em Reais (R$)",
-      data: [
-        3, 13, 16, 5, 12, 23, 19, 3, 13, 16, 5, 12, 23, 19, 3, 13, 16, 5, 12,
-        23, 19, 14, 13, 19, 26,
-      ],
+      data: Object.values(dataIntervalMeanConsumiption),
       borderColor: "rgb(15, 38, 241)",
       backgroundColor: "rgb(15, 38, 241)",
       yAxisID: "y1",
     },
-  ]
+  ],
 };
 
+
+
 export function ChartDiary() {
-  const printElementAtEvent = (element: InteractionItem[]) => {
+
+  const [showModal, setShowModal] = useState(false);
+
+  function closeModal() {
+    setShowModal(false);
+  }
+
+  const openModal = (element: InteractionItem[]) => {
     if (!element.length) return;
 
-    const { datasetIndex, index } = element[0];
+    console.log(element.length);
+    setShowModal(true);
+    // const { datasetIndex, index } = element[0];
 
-    console.log(data.labels[index], data.datasets[datasetIndex].data[index]);
+
+
+    // console.log(data.labels[index], data.datasets[datasetIndex].data[index]);
   };
 
   const chartRef = useRef<ChartJS>(null);
@@ -158,16 +177,21 @@ export function ChartDiary() {
     if (!chart) {
       return;
     }
-    printElementAtEvent(getElementAtEvent(chart, event));
+    openModal(getElementAtEvent(chart, event));
   };
 
+
+  
   return (
-    <Chart
-      ref={chartRef}
-      type="line"
-      onClick={onClick}
-      options={options}
-      data={data}
-    />
+    <div>
+      <Chart
+        ref={chartRef}
+        type="line"
+        onClick={onClick}
+        options={options}
+        data={data}
+      />
+      {showModal ? <Modal closeModal={closeModal} /> : ""}
+    </div>
   );
 }
