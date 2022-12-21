@@ -9,6 +9,7 @@ import {
   LineElement,
   Legend,
   Tooltip,
+  registerables
 } from "chart.js";
 import {
   Chart,
@@ -33,7 +34,8 @@ ChartJS.register(
   LineElement,
   Legend,
   Tooltip,
-  annotationPlugin
+  annotationPlugin,
+  ...registerables
 );
 
 let dataMeans = Object.values(dataIntervalMean);
