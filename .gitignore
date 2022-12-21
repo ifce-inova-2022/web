@@ -8,10 +8,12 @@ logs
 **/*.backup.*
 **/*.back.*
 
+package-lock.json
+yarn.lock
 node_modules
 bower_components
 .env
-
+dist
 *.sublime*
 
 
