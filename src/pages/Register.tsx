@@ -47,10 +47,10 @@ export function Register() {
     <div className="w-full min-h-screen bg-zinc-100 flex flex-col items-center justify-center overflow-x-hidden">
       <form
         onSubmit={handleSubmit}
-        className="w-[400px] flex flex-col gap-4 items-center sm:px-6 px-3 md:py-28 py-20
+        className="desktop:w-[400px] tablet:w-[400px] mobile:w-[330px] flex flex-col gap-4 items-center sm:px-6 px-3 md:py-28 py-20
         "
       >
-        <h1 className="text-3xl p-2 font-bold">Cadastro de usuário</h1>
+        <h1 className="desktop:text-3xl tablet:text-3xl mobile:text-2xl p-2 font-bold">Cadastro de usuário</h1>
         <FieldInput
           id="name"
           placeholder="Nome completo"

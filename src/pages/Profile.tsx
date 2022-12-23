@@ -30,7 +30,7 @@ export function Profile() {
         ""
       )}
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <h1 className="text-3xl font-bold ">Configurações da conta</h1>
+        <h1 className="desktop:text-3xl tablet:text-3xl mobile:text-xl font-bold ">Configurações da conta</h1>
         <FieldInput
           type="text"
           id="name"
