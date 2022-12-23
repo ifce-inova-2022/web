@@ -35,7 +35,7 @@ export function Home() {
     <main
       className={`${styleStatusConsumer} w-screen h-screen flex items-center justify-center transition-colors duration-[3s]`}
     >
-      <div className="absolute top-9 right-40 z-30">
+      <div className="absolute desktop:top-9 desktop:right-40 tablet:top-9 tablet:right-40 mobile:top-24 mobile:right-5 z-30">
         <input
           type="range"
           value={value}
@@ -46,19 +46,19 @@ export function Home() {
       </div>
       <section className="flex flex-col items-center gap-2 drop-shadow-lg">
         <h1 className="text-3xl font-semibold">Valor gasto hoje</h1>
-        <p className="lg:text-[10rem] sm:text-9xl text-6xl font-semibold transition-all">
+        <p className="desktop:text-[10rem] tablet:text-6xl mobile:text-2xl font-semibold transition-all">
           R$ {value},00
         </p>
-        <span className="text-xl uppercase font-bold">
+        <span className="desktop:text-xl uppercase font-bold">
           Consumo {statusConsumer}
         </span>
       </section>
-      <footer className="w-full absolute bottom-0 left-0 flex flex-col sm:gap-4 gap-2">
-        <div className="flex-1 flex sm:flex-row flex-col-reverse justify-between items-end sm:gap-0 gap-4 sm:px-10 px-4">
-          <span className="text-xl font-medium">Últimos 7 dias</span>
+      <footer className="w-full absolute bottom-0 left-0 flex flex-col mobile:gap-4 gap-2">
+        <div className="flex-1 flex mobile:flex-row flex-col-reverse justify-between items-end mobile::gap-0 gap-4 mobile:px-10 px-4">
+          <span className="desktop:text-xl tablet:text-xl mobile:text font-medium">Últimos 7 dias</span>
           <Link
             to="/dashboard"
-            className="bg-zinc-900 text-zinc-100 py-2 px-6 rounded-md shadow-lg hover:shadow-sm hover:bg-zinc-800 hover:translate-y-0.5 focus:bg-zinc-800 transition-all"
+            className="flex items-center justify-center desktop:w-[200px] tablet:w-[200px] mobile:w-[120px] mobile:text-base bg-zinc-900 text-zinc-100 py-2 px-6 rounded-md shadow-lg hover:shadow-sm hover:bg-zinc-800 hover:translate-y-0.5 focus:bg-zinc-800 transition-all"
           >
             Acessar dashboard
           </Link>
@@ -67,7 +67,7 @@ export function Home() {
         <div
           className="flex flex-nowrap gap-6
         py-4 px-1 rounded-t-3xl border-t-4
-        bg-zinc-50/10  border-zinc-50/20 overflow-hidden whitespace-nowrap"
+        bg-zinc-50/10 border-zinc-50/20 overflow-hidden whitespace-nowrap"
         >
           <AliceCarousel
             animationDuration={20000}

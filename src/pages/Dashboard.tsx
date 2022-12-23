@@ -22,7 +22,7 @@ export function Dashboard() {
           {categories.map((item) => {
             return (
               <button
-                className={`text-start w-52 sm:px-6 py-3 text-sm font-medium leading-5 bg-custom-green-default",
+                className={`text-start w-52 px-6 py-3 text-sm font-medium leading-5 bg-custom-green-default",
                 "focus:border-b-0 focus:border-l-8 ring-0 outline-none transition-all duration-300 ${
                   category === item
                     ? "bg-custom-green-hover shadow-md scale-[1.03]"

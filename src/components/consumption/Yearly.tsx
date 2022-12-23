@@ -1,22 +1,16 @@
 import { Button } from "../Button";
 import { ChartYearly } from "../charts/ChartYearly";
+import { ChartTitle } from "../ChartTitle";
+import { InforHeader } from "../InfoHeader";
 import { SectionDashboard } from "../SectionDashboard";
 
 export function Yearly() {
   return (
     <SectionDashboard title="Consumo Anual">
-      <div className="flex gap-6 mt-6">
-        <span className="text-xl font-bold">CAMPUS</span>
-        <span className="text-xl">IFCE - CAMPUS ARACATI</span>
-      </div>
+      <InforHeader campus="IFCE - CAMPUS ARACATI" periodo="2022" />
 
-      <div className="mt-8 flex flex-col">
-        <span className="text-xl font-medium">Período</span>
-        <span>2022</span>
-      </div>
-
-      <div className="flex justify-between items-center mt-4">
-        <span className="text-2xl font-bold">Gráfico de consumo anual</span>
+      <div className="flex justify-between items-center mt-4 desktop:flex-row tablet:flex-row mobile:flex-col">
+        <ChartTitle type="anual" />
 
         <div className="flex gap-2">
           <Button

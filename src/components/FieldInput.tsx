@@ -44,7 +44,7 @@ export function FieldInput({
 
   const isPassword = initialType === "password";
 
-  const widthInput = width === "50%" ? "w-[50%] " : "w-full";
+  const widthInput = width === "50%" ? "w-[50%]" : "w-full";
 
   return (
     <fieldset className={`${widthInput} flex flex-col gap-1 group`}>
