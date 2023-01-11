@@ -1,18 +1,25 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { User, UserCircle, X } from "phosphor-react";
+import { AuthContext } from "../contexts/Auth/AuthContext";
 
 export function Header() {
-  const [user, setUser] = useState<undefined | { name: string; type: string }>({
-    name: "Alexandre",
-    type: "admin",
-  });
+  const navigate = useNavigate()
+  const auth = useContext(AuthContext);
+
+  // const [user, setUser] = useState<undefined | { name: string; type: string }>({
+  //   name: "Alexandre",
+  //   type: "admin",
+  // });
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-  function handleSingUp() {
-    setUser(undefined);
+  async function handleSingUp() {
+    // setUser(undefined);
     setIsOpenModal(false);
+    await auth.signout();
+    navigate('/')
+    window.location.href = window.location.href
   }
 
   return (
@@ -22,7 +29,7 @@ export function Header() {
           <img src="/logo.png" alt="" />
         </Link>
       </div>
-      {user ? (
+      {auth.user ? (
         <div className="relative">
           <button
             className="rounded-full shadow-md hover:shadow-lg shadow-zinc-600/60 hover:shadow-zinc-600/60 hover:scale-110 transition-all outline-none bg-zinc-50"
@@ -36,7 +43,7 @@ export function Header() {
               onMouseLeave={() => setIsOpenMenu(false)}
             >
               <ul className="flex flex-col items-start gap-2">
-                <li>{`Olá, ${user.name}`}</li>
+                <li>{`Olá, ${auth.user?.name}`}</li>
                 <hr />
                 <li>
                   {" "}
@@ -46,7 +53,7 @@ export function Header() {
                 </li>
                 <li>
                   {" "}
-                  {user.type === "admin" ? (
+                  {auth.user?.type === "admin" ? (
                     <Link className="link" to="register">
                       Criar usuário
                     </Link>
