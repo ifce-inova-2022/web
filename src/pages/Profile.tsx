@@ -1,7 +1,6 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Button } from "../components/Button";
 import { FieldInput } from "../components/FieldInput";
-import { AuthContext } from "../contexts/Auth/AuthContext";
 
 const user = {
   name: "Alexandre Gurgel",
@@ -11,8 +10,6 @@ const user = {
 };
 
 export function Profile() {
-  const auth = useContext(AuthContext);
-
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [type, setType] = useState(user.type);
