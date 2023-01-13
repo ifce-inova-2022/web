@@ -1,25 +1,22 @@
 import { Button } from "../Button";
 import { ChartMonthly } from "../charts/ChartMonthly";
-import { ChartTitle } from "../ChartTitle";
-import { InforHeader } from "../InfoHeader";
 
 import { SectionDashboard } from "../SectionDashboard";
 
 export function Monthly() {
   return (
-    <SectionDashboard title="Consumo Mensal">
-      <InforHeader campus="IFCE - CAMPUS ARACATI" periodo="Outubro de 2022" />
+    <SectionDashboard
+      title="Gráfico de consumo mensal"
+      campus="IFCE - CAMPUS ARACATI"
+      periodo="Outubro de 2022"
+    >
+      <div className="w-full flex justify-end gap-4">
+        <div>
+          <Button typeColor="primary" title="Retornar período" />
+        </div>
 
-      <div className="flex justify-between items-center mt-4 desktop:flex-row tablet:flex-row mobile:flex-col">
-        <ChartTitle type="anual" />
-
-        <div className="flex gap-2">
-          <Button
-            typeColor="primary"
-            sizeWidth="50%"
-            title="Retornar período"
-          />
-          <Button typeColor="primary" sizeWidth="50%" title="Avançar período" />
+        <div>
+          <Button typeColor="primary" title="Avançar período" />
         </div>
       </div>
 

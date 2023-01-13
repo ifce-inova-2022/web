@@ -12,19 +12,11 @@ export function Diary() {
   }
 
   return (
-    <SectionDashboard title="Gráfico de consumo diário">
-      <div className="flex justify-between items-start flex-wrap gap-6">
-        <div className="flex flex-col">
-          <span className="text-xl font-bold">CAMPUS</span>
-          <span className="text-xl">IFCE - CAMPUS ARACATI</span>
-        </div>
-
-        <div className="flex flex-col">
-          <span className="text-xl font-medium">Período</span>
-          <span>14 de outubro de 2022</span>
-        </div>
-      </div>
-
+    <SectionDashboard
+      title="Gráfico de consumo diário"
+      campus="IFCE - CAMPUS ARACATI"
+      periodo="14 de Outubro de 2022"
+    >
       <div className="w-full flex justify-end gap-4">
         <div>
           <Button typeColor="primary" title="Retornar período" />
