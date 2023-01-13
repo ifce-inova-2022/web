@@ -50,7 +50,7 @@ export function Dashboard() {
             </ul>
           </aside>
 
-          <div className="w-full bg-zinc-50 flex-1">
+          <div className="flex-1 bg-custom-green-default overflow-x-hidden">
             {category === "Consumo Diário" ? (
               <Diary />
             ) : category === "Consumo Mensal" ? (
