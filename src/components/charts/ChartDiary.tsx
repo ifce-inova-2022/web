@@ -189,7 +189,7 @@ export function ChartDiary() {
   };
 
   return (
-    <div className="">
+    <div className="w-full">
       <Chart
         ref={chartRef}
         type="line"
