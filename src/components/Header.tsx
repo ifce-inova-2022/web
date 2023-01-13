@@ -71,7 +71,7 @@ export function Header() {
       )}
       {isOpenModal ? (
         <div
-          className="glass flex items-center justify-center top-32 right-0 w-screen min-h-screen absolute z-10"
+          className="glass flex items-center justify-center top-0 right-0 w-screen min-h-screen fixed z-10"
           onAuxClick={() => setIsOpenModal(false)}
         >
           <div className=" bg-zinc-50 p-10 shadow-2xl border-2 rounded-lg relative">
