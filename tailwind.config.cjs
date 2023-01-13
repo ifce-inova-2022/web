@@ -2,12 +2,12 @@
 module.exports = {
   content: ["./src/**/*.tsx"],
   theme: {
-    screens: {
-      "mobile": "300px",
-      "tablet": "768px",
-      "desktop": "1024px",
-    },
     extend: {
+      screens: {
+        mobile: "300px",
+        tablet: "768px",
+        desktop: "1024px",
+      },
       colors: {
         custom: {
           green: {

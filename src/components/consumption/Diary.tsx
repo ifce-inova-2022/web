@@ -12,38 +12,32 @@ export function Diary() {
   }
 
   return (
-      <SectionDashboard title="Consumo Diário">
-        <div className="flex gap-6 mt-6">
+    <SectionDashboard title="Gráfico de consumo diário">
+      <div className="flex justify-between items-start flex-wrap gap-6">
+        <div className="flex flex-col">
           <span className="text-xl font-bold">CAMPUS</span>
           <span className="text-xl">IFCE - CAMPUS ARACATI</span>
         </div>
 
-        <div className="mt-8 flex flex-col">
+        <div className="flex flex-col">
           <span className="text-xl font-medium">Período</span>
           <span>14 de outubro de 2022</span>
         </div>
+      </div>
 
-        <div className="flex justify-between items-center mt-4">
-          <span className="text-2xl font-bold">Gráfico de consumo diário</span>
-
-          <div className="flex gap-2">
-            <Button
-              typeColor="primary"
-              sizeWidth="50%"
-              title="Retornar período"
-            />
-
-            <Button
-              typeColor="primary"
-              sizeWidth="50%"
-              title="Avançar período"
-            />
-          </div>
+      <div className="w-full flex justify-end gap-4">
+        <div>
+          <Button typeColor="primary" title="Retornar período" />
         </div>
 
-        <div className="mt-6 px-20 py-4">
-          <ChartDiary />
+        <div>
+          <Button typeColor="primary" title="Avançar período" />
         </div>
-      </SectionDashboard>
+      </div>
+
+      <div className="flex-1 flex items-center justify-center">
+        <ChartDiary />
+      </div>
+    </SectionDashboard>
   );
 }
