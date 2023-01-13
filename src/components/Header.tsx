@@ -16,14 +16,14 @@ export function Header() {
   }
 
   return (
-    <header className="fixed w-full flex justify-between items-center p-6 z-10">
-      <div className="h-10 relative">
+    <header className="bg-custom-green-default w-full flex justify-between items-center p-6 z-10">
+      <div className="relative">
         <Link to="/">
           <img src="/logo.png" alt="" />
         </Link>
       </div>
       {user ? (
-        <div className="relative">
+        <div className="relative flex">
           <button
             className="rounded-full shadow-md hover:shadow-lg shadow-zinc-600/60 hover:shadow-zinc-600/60 hover:scale-110 transition-all outline-none bg-zinc-50"
             onClick={() => setIsOpenMenu(!isOpenMenu)}
@@ -32,7 +32,7 @@ export function Header() {
           </button>
           {isOpenMenu ? (
             <nav
-              className="min-w-[10rem] w-max bg-zinc-50 border-2 border-zinc-100 right-0 p-6 rounded shadow-lg shadow-zinc-700/10 absolute"
+              className="min-w-[10rem] w-max bg-zinc-50 border-2 border-zinc-100 right-0 p-6 rounded shadow-lg shadow-zinc-700/10 absolute z-20"
               onMouseLeave={() => setIsOpenMenu(false)}
             >
               <ul className="flex flex-col items-start gap-2">
@@ -40,14 +40,14 @@ export function Header() {
                 <hr />
                 <li>
                   {" "}
-                  <Link className="link" to="profile">
+                  <Link className="link" to="/profile">
                     Conta
                   </Link>
                 </li>
                 <li>
                   {" "}
                   {user.type === "admin" ? (
-                    <Link className="link" to="register">
+                    <Link className="link" to="/register">
                       Criar usuário
                     </Link>
                   ) : (
@@ -71,7 +71,7 @@ export function Header() {
       )}
       {isOpenModal ? (
         <div
-          className="glass flex items-center justify-center top-0 right-0 w-screen h-screen absolute z-10"
+          className="glass flex items-center justify-center top-0 right-0 w-screen min-h-screen fixed z-10"
           onAuxClick={() => setIsOpenModal(false)}
         >
           <div className=" bg-zinc-50 p-10 shadow-2xl border-2 rounded-lg relative">

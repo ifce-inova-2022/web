@@ -35,7 +35,7 @@ export function Home() {
     <main
       className={`${styleStatusConsumer} w-screen h-screen flex items-center justify-center transition-colors duration-[3s]`}
     >
-      <div className="absolute desktop:top-9 desktop:right-40 tablet:top-9 tablet:right-40 mobile:top-24 mobile:right-5 z-30">
+      <div className="absolute top-9 right-5 z-30">
         <input
           type="range"
           value={value}
@@ -44,21 +44,21 @@ export function Home() {
           max={100.0}
         />
       </div>
-      <section className="flex flex-col items-center gap-2 drop-shadow-lg">
+      <section className="flex flex-col items-center gap-4 drop-shadow-lg">
         <h1 className="text-3xl font-semibold">Valor gasto hoje</h1>
-        <p className="desktop:text-[10rem] tablet:text-6xl mobile:text-2xl font-semibold transition-all">
+        <p className="md:text-9xl text-6xl font-semibold transition-all">
           R$ {value},00
         </p>
-        <span className="desktop:text-xl uppercase font-bold">
+        <span className="text-xl uppercase font-bold">
           Consumo {statusConsumer}
         </span>
       </section>
       <footer className="w-full absolute bottom-0 left-0 flex flex-col mobile:gap-4 gap-2">
-        <div className="flex-1 flex mobile:flex-row flex-col-reverse justify-between items-end mobile::gap-0 gap-4 mobile:px-10 px-4">
-          <span className="desktop:text-xl tablet:text-xl mobile:text font-medium">Últimos 7 dias</span>
+        <div className="flex-1 flex mobile:flex-row flex-col-reverse justify-between items-end mobile:gap-0 gap-4 mobile:px-10 px-4">
+          <span className="text-xl font-medium">Últimos 7 dias</span>
           <Link
             to="/dashboard"
-            className="flex items-center justify-center desktop:w-[200px] tablet:w-[200px] mobile:w-[120px] mobile:text-base bg-zinc-900 text-zinc-100 py-2 px-6 rounded-md shadow-lg hover:shadow-sm hover:bg-zinc-800 hover:translate-y-0.5 focus:bg-zinc-800 transition-all"
+            className="text-center flex items-center justify-center bg-zinc-900 text-zinc-100 py-2 px-6 rounded-md shadow-lg hover:shadow-sm hover:bg-zinc-800 hover:translate-y-0.5 focus:bg-zinc-800 transition-all"
           >
             Acessar dashboard
           </Link>
