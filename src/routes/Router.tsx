@@ -14,7 +14,7 @@ export function Router() {
       <Route path="/" element={<Home />} />
       <Route path="login" element={<Login />} />
       <Route path="profile" element={<RequireAuth><Profile /></RequireAuth>} />
-      <Route path="register" element={<Register />} />
+      <Route path="register" element={<RequireAuth><Register /></RequireAuth>} />
       <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
       <Route path="*" element={<NotFound />} />
     </Routes>

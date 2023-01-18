@@ -3,20 +3,20 @@ import { Button } from "../components/Button";
 import { FieldInput } from "../components/FieldInput";
 import { AuthContext } from "../contexts/Auth/authContext";
 
-const user = {
-  name: "Alexandre Gurgel",
-  email: "xandongurgel@gmail.com",
-  type: "admin",
-  campus: "IFCE Aracati",
-};
+// const user = {
+//   name: "Alexandre Gurgel",
+//   email: "xandongurgel@gmail.com",
+//   type: "admin",
+//   campus: "IFCE Aracati",
+// };
 
 export function Profile() {
   const auth = useContext(AuthContext)
 
-  const [name, setName] = useState(user.name);
-  const [email, setEmail] = useState(user.email);
-  const [type, setType] = useState(user.type);
-  const [campus, setCampus] = useState(user.campus);
+  const [name, setName] = useState(auth.user?.name ?? '');
+  const [email, setEmail] = useState(auth.user?.email ?? '');
+  const [type, setType] = useState(auth.user?.type ?? '');
+  const [campus, setCampus] = useState(auth.user?.campus ?? '');
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   function handleSubmit(e: { preventDefault: () => void }) {
