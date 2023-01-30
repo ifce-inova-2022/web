@@ -1,5 +1,5 @@
 import { Envelope, Lock } from "phosphor-react";
-import { useContext, useState } from "react";
+import { FormEventHandler, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Button } from "../components/Button";
@@ -16,7 +16,7 @@ export function Login() {
 
   const [error, setError] = useState("");
 
-  function handleSubmit(e: { preventDefault: () => void }) {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
@@ -24,26 +24,22 @@ export function Login() {
       return toast.warn("Campos obrigatórios");
     }
 
-    if (password.length < 8) {
+    if (password.length < 1) {
       setError("A deve conter no mínimo 8 caracteres");
       return toast.warn("Senha inválida");
     }
 
     setError("");
-
-    (async () => {
-      try {
-        toast.success("Logado");
-        const isLogged = await auth.signin(email, password)
-        if (isLogged) {
-          navigate('/dashboard')
-        }
-      } catch (error: any) {
-        toast.error(`Ops... ${error}`);
+    try {
+      toast.success("Logado");
+      const isLogged = await auth.signin(email, password)
+      if (isLogged) {
+        navigate('/dashboard')
       }
-    })();
+    } catch (error: any) {
+      toast.error(`Ops... ${error.message}`);
+    }
   }
-
 
   return (
     <div className="w-screen h-screen bg-zinc-100 flex flex-col justify-center items-center">

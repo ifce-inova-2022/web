@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const validateToken = async () => {
       const storageData = localStorage.getItem('authToken')
       if (storageData) {
-        const data = await api.validateToken(storageData)
+        const data = await api.auth.validateToken(storageData)
         if (data.user) {
           setUser(data.user)
         }
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
   }, [])
 
   const signin = async (email: string, password: string) => {
-    const data = await api.signin(email, password)
+    const data = await api.auth.signin(email, password)
     if (data.user && data.token) {
       setUser(data.user)
       setToken(data.token)
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
   }
 
   const signout = async () => {
-    await api.logout()
+    await api.auth.logout()
     setUser(null)
     setToken('')
   }
