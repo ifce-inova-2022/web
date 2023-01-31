@@ -6,6 +6,8 @@ import { RadioButton, RadioOption } from "../components/RadioButton";
 import { toast } from "react-toastify";
 import { Header } from "../components/Header";
 
+// sla alguma  coisa
+
 export function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
