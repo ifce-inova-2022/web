@@ -9,7 +9,7 @@ import {
   LineElement,
   Legend,
   Tooltip,
-  registerables
+  registerables,
 } from "chart.js";
 import {
   Chart,
@@ -108,18 +108,15 @@ const labels = [
 // soma
 // function accumulateMeans(means: number[]) {
 //   let i = 0;
-//   let accumulate = means.reduce((acc, current) => acc + current, i); 
+//   let accumulate = means.reduce((acc, current) => acc + current, i);
 //   return accumulate;
 // }
-
-
 
 const meanDA = Object.values(dataIntervalMeanDA.m_pa_fp);
 // let accumulateMeanDA : number[] = [];
 // accumulateMeanDA.push(accumulateMeans(meanDA));
 
 // console.log(accumulateMeanDA.push(accumulateMeans(meanDA)));
-
 
 const meanDR = Object.values(dataIntervalMeanDR.m_pr_fp);
 const meanConsumiption = Object.values(dataIntervalMeanConsumiption.m_c_fp);
@@ -134,7 +131,7 @@ export const data = {
       data: meanDA,
       yAxisID: "y",
       pointStyle: "rectRot",
-      hoverRadius: 6
+      hoverRadius: 6,
     },
     {
       label: "Demanda Reativa",
@@ -143,7 +140,7 @@ export const data = {
       backgroundColor: "rgb(255, 0, 0)",
       yAxisID: "y",
       pointStyle: "rectRot",
-      hoverRadius: 6
+      hoverRadius: 6,
     },
     {
       label: "Consumo em Reais (R$)",
@@ -152,7 +149,7 @@ export const data = {
       backgroundColor: "rgb(15, 38, 241)",
       yAxisID: "y1",
       pointStyle: "rectRot",
-      hoverRadius: 6
+      hoverRadius: 6,
     },
   ],
 };
@@ -192,7 +189,7 @@ export function ChartDiary() {
   };
 
   return (
-    <div>
+    <div className="w-full">
       <Chart
         ref={chartRef}
         type="line"

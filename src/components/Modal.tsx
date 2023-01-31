@@ -8,10 +8,8 @@ interface ModalProps {
 }
 
 export function Modal({closeModal, title, period, measurements}: ModalProps) {
-
-
   return (
-    <div className="glass flex items-center justify-center top-0 right-0 w-screen h-screen absolute z-10">
+    <div className="glass flex items-center justify-center top-0 right-0 w-screen h-screen fixed z-10 overflow-hidden">
       <div className="bg-zinc-50 w-[550px] h-[288px] shadow-md p-6 absolute">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl">{title}</h1>

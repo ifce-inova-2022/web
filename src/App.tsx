@@ -19,7 +19,7 @@ export function App() {
           pauseOnHover
           theme="light"
         />
-        <Header />
+
         <Router />
       </BrowserRouter>
     </>

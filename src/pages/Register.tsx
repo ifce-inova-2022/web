@@ -4,6 +4,7 @@ import { Button } from "../components/Button";
 import { FieldInput } from "../components/FieldInput";
 import { RadioButton, RadioOption } from "../components/RadioButton";
 import { toast } from "react-toastify";
+import { Header } from "../components/Header";
 
 export function Register() {
   const [name, setName] = useState("");
@@ -42,90 +43,95 @@ export function Register() {
   }
 
   return (
-    <div className="w-full min-h-screen bg-zinc-100 flex flex-col items-center justify-center overflow-x-hidden">
-      <form
-        onSubmit={handleSubmit}
-        className="desktop:w-[400px] tablet:w-[400px] mobile:w-[330px] flex flex-col gap-4 items-center sm:px-6 px-3 md:py-28 py-20
+    <>
+      <Header />
+      <main className="w-full min-h-screen sm:p-20 p-6 bg-zinc-100 flex justify-center overflow-x-hidden">
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-full flex flex-col items-center gap-4
         "
-      >
-        <h1 className="desktop:text-3xl tablet:text-3xl mobile:text-2xl p-2 font-bold">Cadastro de usuário</h1>
-        <FieldInput
-          id="name"
-          placeholder="Nome completo"
-          icon={<User />}
-          label="Name"
-          type="text"
-          value={name}
-          setValue={setName}
-          width="100%"
-        />
-
-        <FieldInput
-          id="email"
-          placeholder="exemplo@email.com"
-          icon={<Envelope />}
-          label="Email"
-          type="email"
-          value={email}
-          setValue={setEmail}
-          width="100%"
-        />
-
-        <div className="flex w-full ">
+        >
+          <h1 className="desktop:text-3xl tablet:text-3xl mobile:text-2xl p-2 font-bold">
+            Cadastro de usuário
+          </h1>
           <FieldInput
-            id="campus"
-            placeholder="Campus"
-            icon={<House />}
-            label="Campus"
+            id="name"
+            placeholder="Nome completo"
+            icon={<User />}
+            label="Name"
             type="text"
-            value={campus}
-            setValue={setCampus}
-            width="50%"
+            value={name}
+            setValue={setName}
+            width="100%"
           />
 
-          <div className="ml-[20px]">
-            <RadioButton
-              id="isAdmin"
-              label="Administrador"
-              name="isAdmin"
-              required
-              value={admin}
-              setValue={setAdmin}
-            >
-              <RadioOption value="isNotAdmin">Não</RadioOption>
-              <RadioOption value="isAdmin">Sim</RadioOption>
-            </RadioButton>
+          <FieldInput
+            id="email"
+            placeholder="exemplo@email.com"
+            icon={<Envelope />}
+            label="Email"
+            type="email"
+            value={email}
+            setValue={setEmail}
+            width="100%"
+          />
+
+          <div className="flex w-full ">
+            <FieldInput
+              id="campus"
+              placeholder="Campus"
+              icon={<House />}
+              label="Campus"
+              type="text"
+              value={campus}
+              setValue={setCampus}
+              width="50%"
+            />
+
+            <div className="ml-[20px]">
+              <RadioButton
+                id="isAdmin"
+                label="Administrador"
+                name="isAdmin"
+                required
+                value={admin}
+                setValue={setAdmin}
+              >
+                <RadioOption value="isNotAdmin">Não</RadioOption>
+                <RadioOption value="isAdmin">Sim</RadioOption>
+              </RadioButton>
+            </div>
           </div>
-        </div>
 
-        <FieldInput
-          id="password"
-          placeholder="********"
-          icon={<Lock />}
-          label="Senha"
-          type="password"
-          value={password}
-          setValue={setPassword}
-          width="100%"
-        />
+          <FieldInput
+            id="password"
+            placeholder="********"
+            icon={<Lock />}
+            label="Senha"
+            type="password"
+            value={password}
+            setValue={setPassword}
+            width="100%"
+          />
 
-        <FieldInput
-          id="password-confirmation"
-          placeholder="********"
-          icon={<Lock />}
-          label="Confirmar senha"
-          type="password"
-          value={passwordCheck}
-          setValue={setPasswordCheck}
-          width="100%"
-        />
-        <Button
-          type="submit"
-          typeColor="primary"
-          title="Criar conta"
-          sizeWidth="100%"
-        />
-      </form>
-    </div>
+          <FieldInput
+            id="password-confirmation"
+            placeholder="********"
+            icon={<Lock />}
+            label="Confirmar senha"
+            type="password"
+            value={passwordCheck}
+            setValue={setPasswordCheck}
+            width="100%"
+          />
+          <Button
+            type="submit"
+            typeColor="primary"
+            title="Criar conta"
+            sizeWidth="100%"
+          />
+        </form>
+      </main>
+    </>
   );
 }
