@@ -1,8 +1,13 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { User, UserCircle, X } from "phosphor-react";
+import { AuthContext } from "../contexts/Auth/authContext";
+import { toast } from "react-toastify";
 
 export function Header() {
+  const auth = useContext(AuthContext)
+  const navigate = useNavigate()
+
   const [user, setUser] = useState<undefined | { name: string; type: string }>({
     name: "Alexandre",
     type: "admin",
@@ -13,6 +18,13 @@ export function Header() {
   function handleSingUp() {
     setUser(undefined);
     setIsOpenModal(false);
+    handleLogout()
+    toast.success("Deslogado");
+  }
+
+  const handleLogout = async () => {
+    await auth.signout()
+    navigate('/')
   }
 
   return (
@@ -22,8 +34,8 @@ export function Header() {
           <img src="/logo.png" alt="" />
         </Link>
       </div>
-      {user ? (
-        <div className="relative flex">
+      {auth.user ? (
+        <div className="relative">
           <button
             className="rounded-full shadow-md hover:shadow-lg shadow-zinc-600/60 hover:shadow-zinc-600/60 hover:scale-110 transition-all outline-none bg-zinc-50"
             // onClick={() => setIsOpenMenu(!isOpenMenu)}
@@ -37,7 +49,7 @@ export function Header() {
               onMouseLeave={() => setIsOpenMenu(false)}
             >
               <ul className="flex flex-col items-start gap-2">
-                <li>{`Olá, ${user.name}`}</li>
+                <li>{`Olá, ${auth.user?.name}`}</li>
                 <hr />
                 <li>
                   {" "}
@@ -47,8 +59,8 @@ export function Header() {
                 </li>
                 <li>
                   {" "}
-                  {user.type === "admin" ? (
-                    <Link className="link" to="/register">
+                  {auth.user?.type === "admin" ? (
+                    <Link className="link" to="register">
                       Criar usuário
                     </Link>
                   ) : (

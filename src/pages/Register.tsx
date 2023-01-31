@@ -1,10 +1,12 @@
 import { Lock, User, Envelope, House } from "phosphor-react";
-import { useState } from "react";
+import { FormEventHandler, useState } from "react";
 import { Button } from "../components/Button";
 import { FieldInput } from "../components/FieldInput";
 import { RadioButton, RadioOption } from "../components/RadioButton";
 import { toast } from "react-toastify";
 import { Header } from "../components/Header";
+
+// sla alguma  coisa
 
 export function Register() {
   const [name, setName] = useState("");
@@ -16,7 +18,7 @@ export function Register() {
 
   const [error, setError] = useState("");
 
-  function handleSubmit(e: { preventDefault: () => void }) {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
     if (!name || !email || !campus || !password || !passwordCheck) {
@@ -35,13 +37,11 @@ export function Register() {
 
     setError("");
 
-    (async () => {
-      try {
-        toast.success("Deu certo");
-      } catch (error: any) {
-        toast.error(`Ops... ${error}`);
-      }
-    })();
+    try {
+      toast.success("Deu certo");
+    } catch (error: any) {
+      toast.error(`Ops... ${error}`);
+    }
   }
 
   return (
